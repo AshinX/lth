@@ -1,4 +1,4 @@
-package com.fy.lth.common;
+package com.fy.lth.common.util;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;

@@ -1,7 +1,7 @@
 package com.fy.lth.commands;
 
-import com.fy.lth.common.ClipboardUtils;
-import com.fy.lth.common.IpUtils;
+import com.fy.lth.common.util.ClipboardUtils;
+import com.fy.lth.common.util.IpUtils;
 import org.springframework.shell.standard.ShellCommandGroup;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
