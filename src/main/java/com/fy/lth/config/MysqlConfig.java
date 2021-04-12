@@ -34,7 +34,9 @@ public class MysqlConfig {
         builder.addRow().addValue("innodb_old_blocks_time").addValue("表示页读取到midpoint位置后需要等待多久才转化为热点数据");
         builder.addRow().addValue("innodb_log_buffer_size = 8M").addValue("重做日志redolog缓冲大小");
 
-
+        builder.addRow().addValue("max_binlog_size").addValue("单个binlog文件最大大小");
+        builder.addRow().addValue("binlog_cache_size").addValue("记录未提交的二进制日志缓存大小");
+        builder.addRow().addValue("sync_binlog").addValue("缓存日志是否同步写");
 
 
 
