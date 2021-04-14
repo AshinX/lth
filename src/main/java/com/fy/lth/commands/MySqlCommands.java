@@ -1,6 +1,7 @@
 package com.fy.lth.commands;
 
 import com.fy.lth.common.ChinesSizeConstraints;
+import com.fy.lth.common.util.TableUtil;
 import org.springframework.shell.standard.ShellCommandGroup;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
@@ -11,10 +12,9 @@ import org.springframework.shell.table.*;
 public class MySqlCommands {
 
 
-    @ShellMethod(value = "mysqlLogLookTable 导航", key = {"mysqlLogLookTable"})
+    @ShellMethod(value = "mysqlLogLookTable数据库日志", key = {"mysqlLogLookTable"})
     public Table mysqlLogLookTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("SQL").addValue("explain");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("show VARIABLES LIKE 'log_error'").addValue("查找mysql错误日志路径");
         builder.addRow().addValue("show VARIABLES LIKE 'log_slow_queries  =  ON'").addValue("查看是否打开慢日志");
         builder.addRow().addValue("show VARIABLES LIKE 'long_query_time'").addValue("慢日志的时间（记录执行大于此时间的sql）");

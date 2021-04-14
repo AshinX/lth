@@ -1,12 +1,17 @@
 package com.fy.lth.common.util;
 
-import com.fy.lth.common.ChinesSizeConstraints;
+import java.util.List;
+import java.util.Objects;
+
 import org.springframework.shell.table.BorderStyle;
 import org.springframework.shell.table.CellMatchers;
 import org.springframework.shell.table.Table;
 import org.springframework.shell.table.TableBuilder;
 import org.springframework.shell.table.TableModel;
 import org.springframework.shell.table.TableModelBuilder;
+import org.springframework.util.CollectionUtils;
+
+import com.fy.lth.common.ChinesSizeConstraints;
 
 /**
  * @author fengyue
@@ -21,4 +26,16 @@ public class TableUtil {
         return tableBuilder.addFullBorder(BorderStyle.fancy_light).build();
     }
 
+
+    public static TableModelBuilder create(List<String> args){
+        TableModelBuilder builder = new TableModelBuilder<String>();
+        if(CollectionUtils.isEmpty(args) || Objects.isNull(args)){
+            builder.addRow().addValue("---------------command---------------").addValue("---------------explain---------------");
+            return builder;
+        }
+        for (String arg : args) {
+            builder.addRow().addValue("---------------"+arg+"---------------");
+        }
+        return builder;
+    }
 }

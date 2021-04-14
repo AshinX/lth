@@ -18,8 +18,7 @@ public class LinuxCommands {
 
     @ShellMethod(value = "grepTable 导航", key = {"grepTable"})
     public Table grepTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("command  ").addValue("explain  ");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("grep -v 'leo' a.txt").addValue("搜索文件中不包含 leo 字符串的行");
         builder.addRow().addValue("grep 'leo' a.txt").addValue("搜索文件中包含 leo 字符串的行");
         builder.addRow().addValue("grep -i 'leo' a.txt").addValue("搜索文件中包含 leo 字符串的行，并忽略leo的大小写");
@@ -30,8 +29,7 @@ public class LinuxCommands {
 
     @ShellMethod(value = "findTable 导航", key = {"findTable"})
     public Table findTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("command  ").addValue("explain  ");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("find / -name '*.txt' ").addValue("查找根目录下所有以.txt结尾的文件");
         builder.addRow().addValue("find /test -perm 644").addValue("查找/test目录下，权限为644的文件");
         builder.addRow().addValue("find . -type f -name 'abc' ").addValue("查找当前目录下所有文件中包含abc字符串的文件");
@@ -40,8 +38,7 @@ public class LinuxCommands {
 
     @ShellMethod(value = "tailTable 导航", key = {"tailTable"})
     public Table tailTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("command  ").addValue("explain  ");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("tail a.txt").addValue("查看文件内容，和cat效果一样");
         builder.addRow().addValue("tail -n 2 a.txt ").addValue("显示a.txt最后两行数据");
         builder.addRow().addValue("tail -f a.txt  /   tailf  a.txt").addValue("实时监控a.txt内容");
@@ -51,8 +48,7 @@ public class LinuxCommands {
 
     @ShellMethod(value = "headTable 导航", key = {"headTable"})
     public Table headTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("command  ").addValue("explain  ");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("head -n 2 a.txt").addValue("显示文件的前两行");
         return TableUtil.build(builder);
     }
@@ -60,8 +56,7 @@ public class LinuxCommands {
 
     @ShellMethod(value = "closeWaitTable 导航", key = {"closeWaitTable"})
     public Table closeWaitTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("command  ").addValue("explain  ");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'")
             .addValue("查看close_wait");
         return TableUtil.build(builder);
@@ -70,8 +65,7 @@ public class LinuxCommands {
 
     @ShellMethod(value = "scoketStatusTable 导航", key = {"scoketStatusTable"})
     public Table scoketStatusTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("command  ").addValue("explain  ");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("CLOSED").addValue("没有使用这个套接字[netstat 无法显示closed状态]");
         builder.addRow().addValue("LISTEN").addValue("套接字正在监听连接[调用listen后]");
         builder.addRow().addValue("SYN_SENT").addValue("套接字正在试图主动建立连接[发送SYN后还没有收到ACK]");
@@ -88,8 +82,7 @@ public class LinuxCommands {
 
     @ShellMethod(value = "crontabTable(定时任务)", key = {"corntabTable"})
     public Table crontabTable() {
-        TableModelBuilder builder = new TableModelBuilder<String>();
-        builder.addRow().addValue("command  ").addValue("explain  ");
+        TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("crontab -l").addValue("查看当前计划任务");
         builder.addRow().addValue("crontab -e").addValue("创建计划任务"
                                                         + "\n" + "minute(分) hour(小时) day(天) month(月) week(周) command(命令)"
