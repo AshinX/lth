@@ -12,7 +12,7 @@ import org.springframework.shell.table.*;
 public class MySqlCommands {
 
 
-    @ShellMethod(value = "mysqlLogLookTable数据库日志", key = {"mysqlLogLookTable"})
+    @ShellMethod(value = "数据库日志配置", key = {"mysqlLogLookTable"})
     public Table mysqlLogLookTable() {
         TableModelBuilder builder = TableUtil.create(null);
         builder.addRow().addValue("show VARIABLES LIKE 'log_error'").addValue("查找mysql错误日志路径");
