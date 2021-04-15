@@ -24,10 +24,7 @@ public class MySqlCommands {
         builder.addRow().addValue("mysqldumpslow -s al -n 10  xxx.log").addValue("获取执行时间最长的10条sql");
         builder.addRow().addValue("show VARIABLES LIKE 'datadir'").addValue("查询binlog日志存储位置");
 
-        TableModel tableModel = builder.build();
-        TableBuilder tableBuilder = new TableBuilder(tableModel);
-        tableBuilder.on(CellMatchers.table()).addSizer(new ChinesSizeConstraints()).and();
-        return tableBuilder.addFullBorder(BorderStyle.fancy_light).build();
+        return TableUtil.build(builder);
     }
 
 }
