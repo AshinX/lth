@@ -27,4 +27,13 @@ public class MySqlCommands {
         return TableUtil.build(builder);
     }
 
+
+
+    @ShellMethod(value = "mysqlShell command", key = {"mysqlshellTable"})
+    public Table mysqlshell() {
+        TableModelBuilder builder = TableUtil.create(null);
+        builder.addRow().addValue("\\connect root@127.0.0.1:3307").addValue("mysql shell 连接数据库");
+        return TableUtil.build(builder);
+    }
+
 }
